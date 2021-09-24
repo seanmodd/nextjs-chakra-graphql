@@ -15,38 +15,7 @@ import { NavContent } from './NavContent';
 
 const App = () => (
   <Box>
-    <Box as="header" position="fixed" zIndex="9">
-      <Box
-        as="nav"
-        aria-label="Main navigation"
-        bg={mode('gray.50', 'gray.900')}
-        maxW="2xl"
-        mx="auto"
-        textDecoration="none"
-        px={{
-          base: '6',
-          md: '0',
-        }}
-      >
-        {/* <DarkModeSwitch /> */}
-        <NavContent.Mobile
-        // display={{
-        //   base: 'flex',
-        //   lg: 'none',
-        // }}
-        />
-        {/* <MobileNavbar /> */}
-        {/* <NavContent.Desktop
-          textDecoration="none"
-          // display={{
-          //   base: 'none',
-          //   md: 'fixed',
-          //   lg: 'fixed',
-          // }}
-          // display={['none', 'none', 'none', 'fixed', 'fixed']}
-        /> */}
-      </Box>
-    </Box>
+    <NavContent.Mobile />
   </Box>
 );
 export default App;

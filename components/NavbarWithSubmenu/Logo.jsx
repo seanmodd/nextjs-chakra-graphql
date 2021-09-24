@@ -2,6 +2,7 @@ import {
   Flex,
   Heading,
   HStack,
+  Button,
   Text,
   useToken,
   useColorModeValue as mode,
@@ -28,9 +29,11 @@ export const Logo = (props) => {
           textDecoration="none"
           mr="40px"
         >
-          <Heading color={mode('gray.900', 'white')}>CAR</Heading>
+          <Button background="transparent">
+            <Heading color={mode('gray.900', 'white')}>CAR</Heading>
 
-          <Heading marginLeft="2px">X</Heading>
+            <Heading marginLeft="5px">X</Heading>
+          </Button>
         </Flex>
       </Link>
       {/* <chakra.svg aria-hidden viewBox="0 0 123 24" fill="none" {...rest}>

@@ -83,6 +83,8 @@ const theme = extendTheme({
         fontWeight: 'bold',
         fontFamily: 'Poppins, sans-serif',
         lineHeight: '1.5',
+        letterSpacing: '-0.05em',
+        color: '#8344ff',
       },
     },
     Text: {

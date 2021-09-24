@@ -1,8 +1,14 @@
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  gql,
+} from '@apollo/client';
 import {
   ChakraProvider,
   ColorModeProvider,
   useColorMode,
+  VStack,
   Box,
 } from '@chakra-ui/react';
 import { KBarProvider, KBarContent, KBarSearch, KBarResults } from 'kbar';
@@ -15,6 +21,7 @@ function MyApp({ Component, pageProps }) {
     uri: 'http://localhost:1337/graphql',
     cache: new InMemoryCache(),
   });
+
   return (
     <ApolloProvider client={client}>
       <KBarProvider actions={actions}>
@@ -90,7 +97,7 @@ const ContentBox = ({ children }) => {
   };
   return (
     <>
-      <Box pt="100px" px={['0px', '0px', '0px', '0px']} bg={bgColor[colorMode]}>
+      <Box pt="50px" px={['0px', '0px', '0px', '0px']} bg={bgColor[colorMode]}>
         {children}
       </Box>
     </>
