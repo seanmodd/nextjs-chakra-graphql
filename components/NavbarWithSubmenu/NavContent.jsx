@@ -6,16 +6,25 @@ import {
   Flex,
   useColorMode,
   HStack,
+  VStack,
+  Icon,
+  Heading,
   useDisclosure,
   VisuallyHidden,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
 
 import Link from 'next/link';
+import Image from 'next/image';
+
+import { CgProfile } from 'react-icons/cg';
+import { MdSettings } from 'react-icons/md';
 
 import * as React from 'react';
 
+import IconAccount from './IconAccount';
 import { Logo } from './Logo';
+import MobileNavbar from './MobileNavbar';
 import { NavLink } from './NavLink';
 import { NavMenu } from './NavMenu';
 import { Submenu } from './Submenu';
@@ -24,95 +33,83 @@ import { links } from './_data';
 
 const MobileNavContext = (props) => {
   const { isOpen, onToggle } = useDisclosure();
-  // const dispatch = useDispatch();
-  // const { auth } = useSelector((state) => ({ ...state }));
-  // const history = useHistory();
 
-  // const logout = () => {
-  //   dispatch({
-  //     type: 'LOGOUT',
-  //     payload: null,
-  //   });
-  //   window.localStorage.removeItem('auth');
-  //   // history.push('/login');
-  // };
   return (
     <>
-      <Flex
-        align="center"
-        justify="space-between"
-        className="nav-content__mobile"
-        color={mode('gray.900', 'gray.50')}
-        justifyContent="space-between"
-        minW="100vw"
-        // maxW="90vw"
-        bg={mode('gray.50', 'gray.900')}
-        {...props}
-      >
-        <Box ml="15px" mt="15px" flexBasis="6rem">
-          <ToggleButton isOpen={isOpen} onClick={onToggle} />
-        </Box>
-        <Box as="a" rel="home" textDecoration="none" mx="auto">
-          <Logo h="24px" iconColor="blue.400" />
-        </Box>
-        <Box
-          visibility={{
-            base: 'hidden',
-            sm: 'visible',
-          }}
-        >
-          <Link href="/auth/login">
-            <Button
-              _hover={{ color: 'blue.200' }}
-              color={mode('gray.50', 'gray.50')}
-              bg={mode('blue.400', 'blue.400')}
-              as="a"
-              colorScheme="blue"
-              ml="-30px"
-              mr={['90px', '130px', '130px', '0px']}
-            >
-              Get Started
-            </Button>
-          </Link>
-        </Box>
-      </Flex>
-      <NavMenu
-        color={mode('gray.900', 'gray.50')}
-        bg={mode('gray.50', 'gray.900')}
-        animate={isOpen ? 'open' : 'closed'}
-      >
-        {links.map((link, idx) =>
-          link.children ? (
-            <Submenu.Mobile
+      <Flex minW="100vw" bg={mode('gray.50', 'gray.900')}>
+        <VStack>
+          <HStack>
+            <Flex
+              align="center"
+              justify="space-between"
+              // className="nav-content__mobile"
               color={mode('gray.900', 'gray.50')}
-              key={idx}
+              justifyContent="space-between"
+              minW={['90vw', '95vw', '95vw', '95vw']}
+              // mr={['40px', '40px', '40px', '100px']}
+              // maxW="90vw"
               bg={mode('gray.50', 'gray.900')}
-              link={link}
-            />
-          ) : (
-            <NavLink.Mobile
-              color={mode('gray.900', 'gray.50')}
-              bg={mode('gray.50', 'gray.900')}
-              key={idx}
-              href={link.href}
+              {...props}
             >
-              {link.label}
-            </NavLink.Mobile>
-          )
-        )}
-        <Link href="/auth/register">
-          <Button
-            bg={mode('blue.400', 'blue.400')}
-            colorScheme="blue"
-            w="full"
-            size="lg"
-            mt="5"
-            onClick={onToggle}
+              <Box ml={['20px', '20px', '100px', '150px']} mt="50px">
+                {/* <ToggleButton isOpen={isOpen} onClick={onToggle} /> */}
+                <MobileNavbar />
+              </Box>
+              <Box as="a" rel="home" textDecoration="none" mx="auto">
+                <Logo h="24px" iconColor="blue.400" />
+              </Box>
+              <Box
+                mr={['20px', '40px', '40px', '50px']}
+                // visibility={{
+                //   base: 'hidden',
+                //   sm: 'visible',
+                // }}
+              >
+                <Link href="/auth/login">
+                  <Button
+                    mt="0"
+                    _hover={{ background: 'transparent' }}
+                    background="transparent"
+                  >
+                    <Icon
+                      mt="0"
+                      width="50px"
+                      height="50px"
+                      color="#8344ff"
+                      as={CgProfile}
+                    />
+                  </Button>
+                </Link>
+              </Box>
+            </Flex>
+          </HStack>
           >
-            Try for free
-          </Button>
-        </Link>
-      </NavMenu>
+          <HStack align="center" justifyContent="center">
+            <HStack spacing="50px" mx="20px">
+              <Link href="/about">
+                <Button
+                  color={mode('gray.900', 'gray.50')}
+                  background="transparent"
+                >
+                  <Heading fontWeight="normal" fontSize="xl" textAlign="center">
+                    ABOUT
+                  </Heading>
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  background="transparent"
+                  color={mode('gray.900', 'gray.50')}
+                >
+                  <Heading fontWeight="normal" fontSize="xl" textAlign="center">
+                    CONTACT
+                  </Heading>
+                </Button>
+              </Link>
+            </HStack>
+          </HStack>
+        </VStack>
+      </Flex>
     </>
   );
 };
@@ -131,13 +128,13 @@ const DesktopNavContent = (props) => (
   //   // history.push('/login');
   // };
   <Flex
-    className="nav-content__desktop"
+    // className="nav-content__desktop"
     align="center"
     justify="space-between"
     position="fixed"
     width="100%"
     pr="80px"
-    // zIndex="1000"
+    // zIndex="1"
     textDecoration="none"
     // w="100vw"
 
@@ -163,17 +160,9 @@ const DesktopNavContent = (props) => (
           id={`nav__menuitem-${idx}`}
         >
           {link.children ? (
-            <Submenu.Desktop
-              zIndex="9999999"
-              textDecoration="none"
-              link={link}
-            />
+            <Submenu.Desktop zIndex="9" textDecoration="none" link={link} />
           ) : (
-            <NavLink.Desktop
-              textDecoration="none"
-              zIndex="9999999"
-              href={link.href}
-            >
+            <NavLink.Desktop textDecoration="none" zIndex="9" href={link.href}>
               {link.label}
             </NavLink.Desktop>
           )}
@@ -251,7 +240,7 @@ const DarkModeSwitch = ({ children }) => {
         position="fixed"
         top={['10px', '16px', '16px', '16px']}
         right="-30px"
-        zIndex="10"
+        zIndex="1"
         // backgroundColor="red.500"
         // borderWidth="4px"
         // backgroundColor={bgColor[colorMode]}
@@ -261,7 +250,7 @@ const DarkModeSwitch = ({ children }) => {
         <IconButton
           aria-label="Toggle Dark Switch"
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-          zIndex="10000"
+          zIndex="1"
           onClick={toggleColorMode}
           color={iconColor[colorMode]}
           bgColor={bgColor[colorMode]}

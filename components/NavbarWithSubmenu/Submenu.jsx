@@ -5,12 +5,15 @@ import {
   SimpleGrid,
   useDisclosure,
 } from '@chakra-ui/react';
+
 import * as React from 'react';
+
 import { FaChevronDown } from 'react-icons/fa';
-import { useNavMenu } from './useNavMenu';
+
 import { NavLink } from './NavLink';
 import { NavMenu } from './NavMenu';
 import { SubmenuItem as DesktopMenuItem } from './SubmenuItem';
+import { useNavMenu } from './useNavMenu';
 
 const DesktopSubmenu = (props) => {
   const { link } = props;
@@ -22,7 +25,7 @@ const DesktopSubmenu = (props) => {
         alignItems="center"
         as="button"
         type="button"
-        zIndex="9999999"
+        zIndex="9"
         px="4"
         fontWeight="semibold"
         {...getTriggerProps()}
@@ -33,17 +36,17 @@ const DesktopSubmenu = (props) => {
 
       <NavMenu
         {...getMenuProps()}
-        zIndex="9999999"
+        zIndex="9"
         animate={isOpen ? 'open' : 'closed'}
       >
-        <Box maxW="7xl" zIndex="9999999" mx="auto" px="8">
-          <SimpleGrid zIndex="9999999" spacing="10" columns={2}>
+        <Box maxW="7xl" zIndex="9" mx="auto" px="8">
+          <SimpleGrid zIndex="9" spacing="10" columns={2}>
             {link.children?.map((item, idx) => (
               <DesktopMenuItem
                 key={idx}
                 title={item.label}
                 href={item.href}
-                zIndex="9999999"
+                zIndex="9"
                 icon={item.icon}
               >
                 {item.description}

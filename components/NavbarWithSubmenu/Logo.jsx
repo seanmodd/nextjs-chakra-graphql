@@ -28,8 +28,9 @@ export const Logo = (props) => {
           textDecoration="none"
           mr="40px"
         >
-          <Heading color={mode('gray.900', 'white')}>CAR</Heading>{' '}
-          <Heading>EX</Heading>
+          <Heading color={mode('gray.900', 'white')}>CAR</Heading>
+
+          <Heading marginLeft="2px">X</Heading>
         </Flex>
       </Link>
       {/* <chakra.svg aria-hidden viewBox="0 0 123 24" fill="none" {...rest}>

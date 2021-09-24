@@ -15,12 +15,12 @@ import { NavContent } from './NavContent';
 
 const App = () => (
   <Box>
-    <Box as="header" position="fixed" zIndex="99999">
+    <Box as="header" position="fixed" zIndex="9">
       <Box
         as="nav"
         aria-label="Main navigation"
         bg={mode('gray.50', 'gray.900')}
-        maxW="7xl"
+        maxW="2xl"
         mx="auto"
         textDecoration="none"
         px={{
@@ -28,29 +28,30 @@ const App = () => (
           md: '0',
         }}
       >
-        <DarkModeSwitch />
+        {/* <DarkModeSwitch /> */}
         <NavContent.Mobile
-          display={{
-            base: 'flex',
-            lg: 'none',
-          }}
+        // display={{
+        //   base: 'flex',
+        //   lg: 'none',
+        // }}
         />
-        <NavContent.Desktop
+        {/* <MobileNavbar /> */}
+        {/* <NavContent.Desktop
           textDecoration="none"
-          display={{
-            base: 'none',
-            md: 'fixed',
-            lg: 'fixed',
-          }}
-          display={['none', 'none', 'none', 'fixed', 'fixed']}
-        />
+          // display={{
+          //   base: 'none',
+          //   md: 'fixed',
+          //   lg: 'fixed',
+          // }}
+          // display={['none', 'none', 'none', 'fixed', 'fixed']}
+        /> */}
       </Box>
     </Box>
   </Box>
 );
 export default App;
 
-const DarkModeSwitch = ({ children }) => {
+export const DarkModeSwitch = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const iconColor = {
     light: 'gray.400',
@@ -66,7 +67,7 @@ const DarkModeSwitch = ({ children }) => {
         position="fixed"
         top={['10px', '16px', '16px', '16px']}
         right="-30px"
-        zIndex="10"
+        zIndex="1"
         // backgroundColor="red.500"
         // borderWidth="4px"
         // backgroundColor={bgColor[colorMode]}
@@ -76,7 +77,7 @@ const DarkModeSwitch = ({ children }) => {
         <IconButton
           aria-label="Toggle Dark Switch"
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
-          zIndex="10000"
+          zIndex="1"
           onClick={toggleColorMode}
           color={iconColor[colorMode]}
           bgColor={bgColor[colorMode]}
