@@ -4,6 +4,7 @@ import Image from 'next/image';
 import {
   Modal,
   ModalOverlay,
+  VStack,
   ModalContent,
   Input,
   ModalHeader,
@@ -62,21 +63,27 @@ function MobileNavbar(props) {
             </DrawerHeader>
 
             <DrawerBody spacing="50px">
-              <Button background="transparent">
-                <Link href="/shirts">
-                  <Heading color={mode('gray.900', 'gray.50')}>Shirts</Heading>
-                </Link>
-              </Button>
-              <Button background="transparent">
-                <Link href="/hoodies">
-                  <Heading color={mode('gray.900', 'gray.50')}>Hoodies</Heading>
-                </Link>
-              </Button>
-              <Button background="transparent">
-                <Link href="/hats">
-                  <Heading color={mode('gray.900', 'gray.50')}>Hats</Heading>
-                </Link>
-              </Button>
+              <VStack spacing="40px">
+                <Button background="transparent">
+                  <Link href="/shirts">
+                    <Heading color={mode('gray.900', 'gray.50')}>
+                      Shirts
+                    </Heading>
+                  </Link>
+                </Button>
+                <Button background="transparent">
+                  <Link href="/hoodies">
+                    <Heading color={mode('gray.900', 'gray.50')}>
+                      Hoodies
+                    </Heading>
+                  </Link>
+                </Button>
+                <Button background="transparent">
+                  <Link href="/hats">
+                    <Heading color={mode('gray.900', 'gray.50')}>Hats</Heading>
+                  </Link>
+                </Button>
+              </VStack>
             </DrawerBody>
             <DrawerFooter>
               <DarkModeSwitch />

@@ -18,6 +18,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import { CgProfile } from 'react-icons/cg';
+import { FaSearchengin } from 'react-icons/fa';
 import { MdSettings } from 'react-icons/md';
 
 import * as React from 'react';
@@ -55,37 +56,96 @@ const MobileNavContext = (props) => {
                 {/* <ToggleButton isOpen={isOpen} onClick={onToggle} /> */}
                 <MobileNavbar />
               </Box>
-              <Box as="a" rel="home" textDecoration="none" mx="auto">
+              <Box
+                as="a"
+                pl={['20px', '20px', '20px', '20px']}
+                pr={['-20px', '-20px', '-20px', '-20px']}
+                rel="home"
+                textDecoration="none"
+                mx="auto"
+              >
                 <Logo h="24px" iconColor="blue.400" />
               </Box>
               <Box
-                mr={['20px', '40px', '40px', '50px']}
-                // visibility={{
-                //   base: 'hidden',
-                //   sm: 'visible',
-                // }}
+              // mr={['20px', '40px', '40px', '50px']}
+              // visibility={{
+              //   base: 'hidden',
+              //   sm: 'visible',
+              // }}
               >
-                <Link href="/auth/login">
-                  <Button
-                    mt="0"
-                    _hover={{ background: 'transparent' }}
-                    background="transparent"
+                <HStack>
+                  <Link
+                    display={{
+                      base: 'none',
+                      md: 'fixed',
+                      lg: 'fixed',
+                    }}
+                    href="/auth/login"
                   >
-                    <Icon
+                    <Button
+                      display={{
+                        base: 'fixed',
+                        md: 'fixed',
+                        lg: 'fixed',
+                      }}
                       mt="0"
-                      width="50px"
-                      height="50px"
-                      color="#8344ff"
-                      as={CgProfile}
-                    />
-                  </Button>
-                </Link>
+                      _hover={{ background: 'transparent' }}
+                      background="transparent"
+                    >
+                      <Icon
+                        display={{
+                          base: 'fixed',
+                          md: 'fixed',
+                          lg: 'fixed',
+                        }}
+                        mt="0"
+                        width="50px"
+                        height="50px"
+                        color="#8344ff"
+                        as={FaSearchengin}
+                      />
+                    </Button>
+                  </Link>
+                  <Link
+                    display={{
+                      base: 'none',
+                      md: 'fixed',
+                      lg: 'fixed',
+                    }}
+                    href="/auth/login"
+                  >
+                    <Button
+                      display={{
+                        base: 'none',
+                        md: 'fixed',
+                        lg: 'fixed',
+                      }}
+                      top="-2"
+                      mt="0"
+                      _hover={{ background: 'transparent' }}
+                      background="transparent"
+                    >
+                      <Icon
+                        display={{
+                          base: 'fixed',
+                          md: 'fixed',
+                          lg: 'fixed',
+                        }}
+                        mt="0"
+                        width="50px"
+                        height="50px"
+                        color="#8344ff"
+                        as={CgProfile}
+                      />
+                    </Button>
+                  </Link>
+                </HStack>
               </Box>
             </Flex>
           </HStack>
-          >
+
           <HStack align="center" justifyContent="center">
-            <HStack spacing="50px" mx="20px">
+            <HStack spacing="50px" mx="0px">
               <Link href="/about">
                 <Button
                   color={mode('gray.900', 'gray.50')}
