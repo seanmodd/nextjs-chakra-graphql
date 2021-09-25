@@ -17,7 +17,7 @@ function IndexPage() {
   const { loading, error, data } = useQuery(categories);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
-  console.log('categories (from shirts.js) ', data);
+  console.log('categories data (from index-gql.js) ', data);
   return (
     <VStack>
       <Heading>Index Page</Heading>

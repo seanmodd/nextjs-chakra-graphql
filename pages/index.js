@@ -1,13 +1,22 @@
-import { Text, Heading, VStack } from '@chakra-ui/react';
+import { Heading, VStack } from '@chakra-ui/react';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import Button from '@material-ui/core/Button';
+import { GET_FEATURED, GET_FEATURED_PRODUCTS_ONLY } from '../graphql/queries';
+import FeaturedProducts from '../components/FeaturedProducts';
 
-
-function IndexPage({ strapiCategories }) {
-  console.log('strapiCategories : ', strapiCategories);
+function IndexPage({ featuredProducts }) {
+  console.log('featuredProducts (from index.js) : ', featuredProducts);
   return (
     <>
       <VStack>
-        <Heading>This is the Index Page</Heading>
+        <Heading>Featured Products are as follows: </Heading>
+        <Button variant="contained">Hello World</Button>
+        {featuredProducts.map((product) => (
+          <div key={product.id}>
+            <Heading>{product.name}</Heading>
+          </div>
+        ))}
+        <FeaturedProducts />
       </VStack>
     </>
   );
@@ -22,19 +31,12 @@ export async function getStaticProps() {
   });
 
   const { data } = await client.query({
-    query: gql`
-      query {
-        categories {
-          name
-          id
-        }
-      }
-    `,
+    query: GET_FEATURED_PRODUCTS_ONLY,
   });
 
   return {
     props: {
-      strapiCategories: data.categories,
+      featuredProducts: data.products,
     },
   };
 }

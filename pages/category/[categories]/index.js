@@ -1,9 +1,11 @@
 import { Text, Heading, VStack } from '@chakra-ui/react';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
-
 function IndexPage({ strapiCategories }) {
-  console.log('strapiCategories : ', strapiCategories);
+  console.log(
+    'categories data (from [categories] index.js) : ',
+    strapiCategories
+  );
   return (
     <>
       <VStack>

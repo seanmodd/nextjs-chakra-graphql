@@ -17,12 +17,12 @@ function IndexPage() {
   const { loading, error, data } = useQuery(categories);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error</p>;
-  console.log('GRAPHQL CATEGORIES DATA: ', data);
+  console.log('categories data (from hoodies.js): ', data);
   return (
     <VStack>
       <Heading>Index Page</Heading>
       {data.categories.map((category) => (
-        <div>
+        <div key={category.id}>
           <Heading>{category.name}</Heading>
         </div>
       ))}

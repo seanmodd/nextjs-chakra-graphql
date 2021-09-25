@@ -16,12 +16,11 @@ import { FaSearchengin } from 'react-icons/fa';
 
 import * as React from 'react';
 
-import { Logo } from './Logo';
-import MobileNavbar from './MobileNavbar';
-import { links } from './_data';
+import { Logo } from './NavbarWithSubmenu/Logo';
+import OptimizedMobileNavbar from './OptimizedMobileNavbar';
 
-const MobileNavContext = (props) => {
-  console.log('This is props from NavContent.js : ', props);
+function NavContent(props) {
+  console.log('props (from OptimizedNavContent.js): ', props);
   return (
     <>
       <Flex minW="100vw" bg={mode('gray.50', 'gray.900')}>
@@ -37,7 +36,7 @@ const MobileNavContext = (props) => {
               {...props}
             >
               <Box ml={['20px', '20px', '100px', '150px']} mt="50px">
-                <MobileNavbar />
+                <OptimizedMobileNavbar />
               </Box>
               <Box
                 as="a"
@@ -153,8 +152,6 @@ const MobileNavContext = (props) => {
       </Flex>
     </>
   );
-};
+}
 
-export const NavContent = {
-  Mobile: MobileNavContext,
-};
+export default NavContent;
