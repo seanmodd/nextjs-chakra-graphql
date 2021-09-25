@@ -16,7 +16,7 @@ import { FaSearchengin } from 'react-icons/fa';
 
 import * as React from 'react';
 
-import { Logo } from './Logo';
+import { Logo } from '../Logo';
 import MobileNavbar from './MobileNavbar';
 import { links } from './_data';
 

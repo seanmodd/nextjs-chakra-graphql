@@ -12,6 +12,8 @@ import * as React from 'react';
 
 import Link from 'next/link';
 
+import IconAnimations from './Animations/IconAnimations';
+
 export const Logo = (props) => {
   const { iconColor = 'currentColor', ...rest } = props;
   const color = useToken('colors', iconColor);
@@ -29,11 +31,13 @@ export const Logo = (props) => {
           textDecoration="none"
           mr="40px"
         >
-          <Button background="transparent">
-            <Heading color={mode('gray.900', 'white')}>CAR</Heading>
+          <IconAnimations>
+            <Button background="transparent">
+              <Heading color={mode('gray.900', 'white')}>CAR</Heading>
 
-            <Heading marginLeft="5px">X</Heading>
-          </Button>
+              <Heading marginLeft="5px">X</Heading>
+            </Button>
+          </IconAnimations>
         </Flex>
       </Link>
       {/* <chakra.svg aria-hidden viewBox="0 0 123 24" fill="none" {...rest}>

@@ -1,3 +1,5 @@
+import React, { useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   ApolloClient,
   InMemoryCache,
@@ -16,13 +18,28 @@ import { KBarProvider, KBarContent, KBarSearch, KBarResults } from 'kbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { OverrideMaterialUICss } from 'override-material-ui-css';
-import React from 'react';
+
 import NavbarWithSubmenu from '../components/NavbarWithSubmenu/App';
 import OptimizedNavContent from '../components/OptimizedNavContent';
 import theme from '../styles/theme';
 import material_theme from '../utils/material_theme';
+import '../styles/globals.css';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
+  useEffect(() => {
+    const threeScript = document.createElement('script');
+    threeScript.setAttribute('id', 'threeScript');
+    threeScript.setAttribute(
+      'src',
+      'https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js'
+    );
+    document.getElementsByTagName('head')[0].appendChild(threeScript);
+    return () => {
+      if (threeScript) {
+        threeScript.remove();
+      }
+    };
+  }, []);
   // Create the Apollo client, add it to the pageProps.
   const client = new ApolloClient({
     uri: 'http://localhost:1337/graphql',
@@ -48,14 +65,39 @@ function MyApp({ Component, pageProps }) {
           >
             <ThemeProvider theme={material_theme}>
               <CssBaseline />
-
-              <MyBox>
-                {/* <NavbarWithSubmenu /> */}
-                <OptimizedNavContent />
-                <ContentBox>
-                  <Component {...pageProps} />
-                </ContentBox>
-              </MyBox>
+              <AnimatePresence>
+                <motion.div
+                  key={router.route}
+                  initial="pageInitial"
+                  animate="pageAnimate"
+                  exit="pageExit"
+                  variants={{
+                    pageInitial: {
+                      opacity: 0,
+                    },
+                    pageAnimate: {
+                      opacity: 1,
+                      transition: {
+                        duration: 0.5,
+                        ease: 'easeInOut',
+                      },
+                    },
+                    pageExit: {
+                      backgroundColor: 'white',
+                      filter: `invert()`,
+                      opacity: 0,
+                    },
+                  }}
+                >
+                  <MyBox>
+                    {/* <NavbarWithSubmenu /> */}
+                    <OptimizedNavContent />
+                    <ContentBox>
+                      <Component {...pageProps} />
+                    </ContentBox>
+                  </MyBox>
+                </motion.div>
+              </AnimatePresence>
             </ThemeProvider>
           </ColorModeProvider>
         </ChakraProvider>

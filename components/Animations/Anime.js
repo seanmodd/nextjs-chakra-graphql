@@ -1,0 +1,53 @@
+import { Heading, Box } from '@chakra-ui/react';
+import { useRef, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import IconAnimation from './IconAnimations';
+
+function AnimeJS() {
+  const mymaxwidth = '50vw';
+  return (
+    <>
+      <Heading>SVG Text Path Animation with no libraries!</Heading>
+      <Box position="fixed" style={{ contain: 'content', maxWidth: '100vw' }}>
+        {/* <div> */}
+
+        <motion.svg
+          initial={{ strokeOpacity: 0 }}
+          animate={{ strokeOpacity: 0.1 }}
+          transition={{ duration: 0.5 }}
+          id="demo-svg"
+          width="1700"
+          height="600"
+        >
+          <motion.path
+            initial={{ pathLength: 0 }}
+            animate={{ pathLength: 1 }}
+            transition={{ duration: 2 }}
+            whileHover={{
+              scale: 1.2,
+              transition: {
+                duration: 0.8,
+                ease: 'easeInOut',
+              },
+              // scale: [1, 1.4, 1.2],
+              rotate: [0, 12, -12, 0],
+              filter: [
+                'hue-rotate(0) contrast(100%)',
+                'hue-rotate(360deg) contrast(200%)',
+                'hue-rotate(45deg) contrast(300%)',
+                'hue-rotate(0) contrast(100%)',
+              ],
+            }}
+            fill="none"
+            stroke="#8344ff"
+            strokeWidth="10px"
+            // strokeOpacity="0.1"
+            d="M 0 100 Q 150 150 250 300 Q 500 700 600 350 C 700 50 1000 600 1100 400 C 1200 150 1250 650 1700 150 "
+          />
+        </motion.svg>
+      </Box>
+    </>
+  );
+}
+
+export default AnimeJS;

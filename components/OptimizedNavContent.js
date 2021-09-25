@@ -16,8 +16,9 @@ import { FaSearchengin } from 'react-icons/fa';
 
 import * as React from 'react';
 
-import { Logo } from './NavbarWithSubmenu/Logo';
+import { Logo } from './Logo';
 import OptimizedMobileNavbar from './OptimizedMobileNavbar';
+import IconAnimations from './Animations/IconAnimations';
 
 function NavContent(props) {
   console.log('props (from OptimizedNavContent.js): ', props);
@@ -50,71 +51,80 @@ function NavContent(props) {
               </Box>
               <Box>
                 <HStack>
-                  <Link
-                    display={{
-                      base: 'none',
-                      md: 'fixed',
-                      lg: 'fixed',
-                    }}
-                    href="/auth/login"
-                  >
-                    <Button
-                      display={{
-                        base: 'fixed',
-                        md: 'fixed',
-                        lg: 'fixed',
-                      }}
-                      mt="0"
-                      _hover={{ background: 'transparent' }}
-                      background="transparent"
-                    >
-                      <Icon
-                        display={{
-                          base: 'fixed',
-                          md: 'fixed',
-                          lg: 'fixed',
-                        }}
-                        mt="0"
-                        width="50px"
-                        height="50px"
-                        color="#8344ff"
-                        as={FaSearchengin}
-                      />
-                    </Button>
-                  </Link>
-                  <Link
-                    display={{
-                      base: 'none',
-                      md: 'fixed',
-                      lg: 'fixed',
-                    }}
-                    href="/auth/login"
-                  >
-                    <Button
+                  <IconAnimations>
+                    <Link
                       display={{
                         base: 'none',
                         md: 'fixed',
                         lg: 'fixed',
                       }}
-                      top="-2"
-                      mt="0"
-                      _hover={{ background: 'transparent' }}
-                      background="transparent"
+                      href="/auth/login"
                     >
-                      <Icon
+                      <Button
                         display={{
-                          base: 'fixed',
+                          base: 'none',
                           md: 'fixed',
                           lg: 'fixed',
                         }}
+                        top="0"
                         mt="0"
-                        width="50px"
-                        height="50px"
-                        color="#8344ff"
-                        as={CgProfile}
-                      />
-                    </Button>
-                  </Link>
+                        _hover={{ background: 'transparent' }}
+                        _active={{ background: 'transparent' }}
+                        _focus={{ borderWidth: '0px' }}
+                        background="transparent"
+                      >
+                        <Icon
+                          display={{
+                            base: 'fixed',
+                            md: 'fixed',
+                            lg: 'fixed',
+                          }}
+                          mt="0"
+                          width="50px"
+                          height="50px"
+                          color="#8344ff"
+                          as={FaSearchengin}
+                        />
+                      </Button>
+                    </Link>
+                  </IconAnimations>
+                  <IconAnimations>
+                    <Link
+                      display={{
+                        base: 'none',
+                        md: 'fixed',
+                        lg: 'fixed',
+                      }}
+                      href="/auth/login"
+                    >
+                      <Button
+                        display={{
+                          base: 'none',
+                          md: 'fixed',
+                          lg: 'fixed',
+                        }}
+                        top="0"
+                        mt="0"
+                        _hover={{ background: 'transparent' }}
+                        _active={{ background: 'transparent' }}
+                        _focus={{ borderWidth: '0px' }}
+                        background="transparent"
+                      >
+                        <Icon
+                          display={{
+                            base: 'fixed',
+                            md: 'fixed',
+                            lg: 'fixed',
+                          }}
+                          mt="0"
+                          width="50px"
+                          height="50px"
+                          color="#8344ff"
+                          as={CgProfile}
+                        />
+                      </Button>
+                    </Link>
+                  </IconAnimations>
                 </HStack>
               </Box>
             </Flex>
