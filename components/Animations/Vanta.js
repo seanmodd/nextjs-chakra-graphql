@@ -10,16 +10,15 @@ export default function Vanta({ children }) {
   const vantaRef = useRef(null);
   useEffect(() => {
     if (!vantaEffect) {
-      setVantaEffect(
-        NET({
-          el: vantaRef.current,
-          THREE,
-          color: 0x14b679,
+      setVantaEffect();
+      // NET({
+      //   el: vantaRef.current,
+      //   THREE,
+      //   color: 0x14b679,
 
-          // backgroundColor: '#fff',
-          maxDistance: 34.0,
-        })
-      );
+      //   // backgroundColor: '#fff',
+      //   maxDistance: 34.0,
+      // })
     }
     return () => {
       if (vantaEffect) vantaEffect.destory();

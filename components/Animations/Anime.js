@@ -30,7 +30,7 @@ function AnimeJS() {
                 ease: 'easeInOut',
               },
               // scale: [1, 1.4, 1.2],
-              rotate: [0, 12, -12, 0],
+              rotate: [3, 8, -8, 3],
               filter: [
                 'hue-rotate(0) contrast(100%)',
                 'hue-rotate(360deg) contrast(200%)',
@@ -42,7 +42,7 @@ function AnimeJS() {
             stroke="#8344ff"
             strokeWidth="10px"
             // strokeOpacity="0.1"
-            d="M 0 100 Q 150 150 250 300 Q 500 700 600 350 C 700 50 1000 600 1100 400 C 1200 150 1250 650 1700 150 "
+            d="M -100 200 Q 150 150 250 300 Q 500 600 670 380 C 780 200 1000 600 1100 420 C 1200 150 1250 650 1800 300 "
           />
         </motion.svg>
       </Box>

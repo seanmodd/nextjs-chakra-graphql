@@ -146,6 +146,16 @@ function NavContent(props) {
                 </Heading>
               </Button>
             </Link>
+            <Link href="/products">
+              <Button
+                background="transparent"
+                color={mode('gray.900', 'gray.50')}
+              >
+                <Heading fontWeight="normal" fontSize="xl" textAlign="center">
+                  VIEW ALL
+                </Heading>
+              </Button>
+            </Link>
             <Link href="/contact">
               <Button
                 background="transparent"

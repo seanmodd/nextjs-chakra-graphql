@@ -1,10 +1,20 @@
-
+const withTM = require('next-transpile-modules')([
+  'three',
+  '@react-three/drei',
+  'three',
+  'react-three-fiber',
+  'drei',
+]);
 
 module.exports = {
   webpack(config) {
     config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
+      // test: /\.svg$/,
+      // use: ['@svgr/webpack'],
+      test: /\.(glb|gltf)$/,
+      use: {
+        loader: 'file-loader',
+      },
     });
 
     return config;
@@ -18,3 +28,21 @@ module.exports = {
     return [];
   },
 };
+// const withTM = require('next-transpile-modules')([
+//   'three',
+//   'react-three-fiber',
+//   'drei',
+// ]);
+
+// module.exports = withTM({
+//   webpack(config, options) {
+//     config.module.rules.push({
+//       test: /\.(glb|gltf)$/,
+//       use: {
+//         loader: 'file-loader',
+//       },
+//     });
+
+//     return config;
+//   },
+// });

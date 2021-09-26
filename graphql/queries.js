@@ -9,8 +9,8 @@ const GET_CATEGORIES = gql`
   }
 `;
 
-const GET_FEATURED = gql`
-  query FeaturedProducts {
+const GET_ALL_PRODUCTS = gql`
+  query Products {
     products {
       name
       description
@@ -19,6 +19,7 @@ const GET_FEATURED = gql`
       description
       variants {
         id
+        price
       }
     }
   }
@@ -32,5 +33,42 @@ const GET_FEATURED_PRODUCTS_ONLY = gql`
     }
   }
 `;
+const GET_ALL_VARIANTS = gql`
+  query Variants {
+    variants {
+      id
+      qty
+      color
+      size
+      style
+      price
+      product {
+        id
+        name
+        category {
+          id
+          name
+          description
+        }
+        id
+        promo
+        featured
+        description
+      }
+      images {
+        id
+        url
+        height
+        width
+        name
+      }
+    }
+  }
+`;
 
-export { GET_CATEGORIES, GET_FEATURED, GET_FEATURED_PRODUCTS_ONLY };
+export {
+  GET_CATEGORIES,
+  GET_ALL_PRODUCTS,
+  GET_ALL_VARIANTS,
+  GET_FEATURED_PRODUCTS_ONLY,
+};
