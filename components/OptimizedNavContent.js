@@ -176,6 +176,16 @@ function NavContent(props) {
                 </Heading>
               </Button>
             </Link>
+            <Link href="/index-variants">
+              <Button
+                background="transparent"
+                color={mode('gray.900', 'gray.50')}
+              >
+                <Heading fontWeight="normal" fontSize="xl" textAlign="center">
+                  VARIANTS
+                </Heading>
+              </Button>
+            </Link>
             {/* </HStack> */}
           </HStack>
         </VStack>

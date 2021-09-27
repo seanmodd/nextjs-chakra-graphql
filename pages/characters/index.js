@@ -21,6 +21,12 @@ export default function Home(results) {
   const [characters, setCharacters] = useState(intialState.characters);
   const toast = useToast();
 
+  console.log('this is results (from characters /index.js page): ', results);
+  console.log(
+    'these are characters (from the characters /index.js page: ',
+    characters
+  );
+  console.log('this is search (from the characters /index.js page: ', search);
   return (
     <Flex direction="column" justify="center" align="center">
       <Box mb={4} flexDirection="column" align="center" justify="center" py={8}>
@@ -54,6 +60,9 @@ export default function Home(results) {
               placeholder="Search"
               value={search}
               border="none"
+              color="#000"
+              borderWidth="4px"
+              boxShadow="base"
               onChange={(e) => setSearch(e.target.value)}
             />
             <IconButton

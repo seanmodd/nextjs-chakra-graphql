@@ -1,9 +1,8 @@
 import { colors } from '@material-ui/core';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-import { id } from '../../.next/server/pages/index-variants';
 
 const client = new ApolloClient({
-  uri: 'http://localhost1337/graphql',
+  uri: 'http://localhost:1337/graphql',
   cache: new InMemoryCache(),
 });
 
@@ -12,9 +11,10 @@ export default async (req, res) => {
   try {
     const { data } = await client.query({
       query: gql`
-        query {
+        query Variants {
           # characters(filter: { name: "${search}" }) {
-          variants(filter: { name: "${search}" }) {
+          # variants(filter: { name: "${search}" }) {
+            variants(where: {product: {name_contains: "${search}"}}) {
             id
             qty
             color
@@ -44,15 +44,18 @@ export default async (req, res) => {
           }
         }
       `,
+      //  console.log("data.variants : ", data.variants);
     });
-    res.status(200).json({ characters: data.characters.results, error: null });
+    res.status(200).json({ characters: data.variants, error: null });
   } catch (error) {
+    console.log('error: ', error);
     if (error.message === '404: Not Found') {
       res.status(404).json({ characters: null, error: 'No Characters found' });
     } else {
-      res
-        .status(500)
-        .json({ characters: null, error: 'Internal Error, Please try again' });
+      res.status(500).json({
+        characters: null,
+        error: 'Internal Error... gotta try again... or please try again',
+      });
     }
   }
 };

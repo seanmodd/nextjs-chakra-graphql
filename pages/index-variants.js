@@ -34,8 +34,9 @@ function IndexPage(results) {
   const [characters, setCharacters] = useState(intialState.characters);
   const toast = useToast();
   //! above from rick and morty
-  console.log('GET_ALL_VARIANTS (from index.js) : ', results);
-  console.log('from Characters (from index.js) : ', characters);
+  console.log('GET_ALL_VARIANTS (from index-variants.js) : ', results);
+  console.log('from Characters (from index-variants.js) : ', characters);
+  console.log('this is search (from the index-variants.js) : ', search);
   return (
     <>
       <VStack>
@@ -44,7 +45,7 @@ function IndexPage(results) {
         <form
           onSubmit={async (event) => {
             event.preventDefault();
-            const results = await fetch('/api/SearchVariables', {
+            const results = await fetch('/api/SearchVariants', {
               method: 'post',
               body: search,
             });
@@ -69,10 +70,8 @@ function IndexPage(results) {
               textColor="black"
               zIndex="9999"
               color={color[colorMode]}
-              borderWidth="4px"
-              borderColor="gray.400"
               value={search}
-              border="none"
+              boxShadow="base"
               onChange={(e) => setSearch(e.target.value)}
             />
             <IconButton
