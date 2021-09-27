@@ -24,6 +24,9 @@ module.exports = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  images: {
+    domains: ['rickandmortyapi.com'],
+  },
   async getRedirectStatus() {
     return [];
   },

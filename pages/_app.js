@@ -159,7 +159,7 @@ const ContentBox = ({ children }) => {
   };
   return (
     <>
-      <Box pt="50px" px={['0px', '0px', '0px', '0px']} bg={bgColor[colorMode]}>
+      <Box height="300vh" pt="50px" px={['0px', '0px', '0px', '0px']} bg={bgColor[colorMode]}>
         {children}
       </Box>
     </>

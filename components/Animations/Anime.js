@@ -1,5 +1,5 @@
 import { Heading, Box } from '@chakra-ui/react';
-import { useRef, useEffect, useState } from 'react';
+import { useRef, Test, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import IconAnimation from './IconAnimations';
 
@@ -16,8 +16,8 @@ function AnimeJS() {
           animate={{ strokeOpacity: 0.1 }}
           transition={{ duration: 0.5 }}
           id="demo-svg"
-          width="1700"
-          height="600"
+          width="100vw"
+          height="900"
         >
           <motion.path
             initial={{ pathLength: 0 }}
@@ -42,7 +42,7 @@ function AnimeJS() {
             stroke="#8344ff"
             strokeWidth="10px"
             // strokeOpacity="0.1"
-            d="M -100 200 Q 150 150 250 300 Q 500 600 670 380 C 780 200 1000 600 1100 420 C 1200 150 1250 650 1800 300 "
+            d="M -400 -400 -400 200 Q 150 150 250 300 Q 500 600 670 380 C 780 200 1000 600 1100 420 C 1200 150 1250 650 3800 200 "
           />
         </motion.svg>
       </Box>
