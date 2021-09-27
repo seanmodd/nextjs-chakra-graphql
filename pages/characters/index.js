@@ -13,7 +13,7 @@ import { SearchIcon, CloseIcon } from '@chakra-ui/icons';
 import styles from '../../styles/Home.module.css';
 import client from '../../graphql/apolloClient';
 import Character from '../../components/Character';
-import { GET_ALL_VARIANTS } from '../../graphql/queries';
+import { GET_ALL_VARIANTS } from '../../graphql/queries';s
 
 export default function Home(results) {
   const intialState = results;

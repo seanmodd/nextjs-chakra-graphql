@@ -48,6 +48,7 @@ const theme = extendTheme({
       },
       p: {
         fontFamily: 'Poppins',
+        color: props.colorMode === 'dark' ? 'red.400' : 'gray.300',
       },
       a: {
         fontFamily: 'Poppins',
@@ -55,7 +56,7 @@ const theme = extendTheme({
         textAlign: 'center',
         textDecoration: 'none',
 
-        textColor: props.colorMode === 'dark' ? '#2b6cb0' : 'whiteAlpha.900',
+        color: props.colorMode === 'dark' ? '#2b6cb0' : 'whiteAlpha.900',
       },
       span: {
         color: props.colorMode === 'dark' ? '#8344ff' : 'whiteAlpha.900',

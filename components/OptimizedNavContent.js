@@ -176,7 +176,7 @@ function NavContent(props) {
                 </Heading>
               </Button>
             </Link>
-            <Link href="/index-variants">
+            <Link href="/variants">
               <Button
                 background="transparent"
                 color={mode('gray.900', 'gray.50')}

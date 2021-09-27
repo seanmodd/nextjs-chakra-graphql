@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 import { useState } from 'react';
 import {
@@ -11,13 +12,14 @@ import {
   Flex,
   useToast,
   VStack,
+  Button,
 } from '@chakra-ui/react';
 import { SearchIcon, CloseIcon } from '@chakra-ui/icons';
-import Variant from '../components/Variant';
-import client from '../graphql/apolloClient';
-import Fun from '../components/Animations/Fun';
-import { GET_ALL_VARIANTS } from '../graphql/queries';
-import Anime from '../components/Animations/Anime';
+import Variant from '../../components/Variant';
+import client from '../../graphql/apolloClient';
+import Fun from '../../components/Animations/Fun';
+import { GET_ALL_VARIANTS } from '../../graphql/queries';
+import Anime from '../../components/Animations/Anime';
 
 // function IndexPage({ AllVariants }) {
 // function IndexPage({ AllVariants, results }) {
@@ -94,7 +96,26 @@ function IndexPage(results) {
           </Stack>
         </form>
         //! above is from rick and morty
-        <Variant characters={characters} />
+        {/* <Variant characters={characters} /> */}
+        {characters.map((character) => (
+          <VStack
+            borderWidth="5px"
+            borderRadius="5px"
+            p="15px"
+            key={character.id}
+          >
+            <Button zIndex="1">
+              <Link href={`/variants/${character.id}`}>
+                <a>VIEW MORE!</a>
+              </Link>
+            </Button>
+            <Text color={color[colorMode]}>Variant ID: {character.id}</Text>
+            <Heading>Product: {character.product.name}</Heading>
+            <Heading color={color[colorMode]}>
+              Product Category: {character.product.category.name}
+            </Heading>
+          </VStack>
+        ))}
         <Anime />
       </VStack>
     </>

@@ -8,7 +8,11 @@ function AnimeJS() {
   return (
     <>
       <Heading>SVG Text Path Animation with no libraries!</Heading>
-      <Box position="fixed" style={{ contain: 'content', maxWidth: '100vw' }}>
+      <Box
+        zIndex="0"
+        position="fixed"
+        style={{ contain: 'content', maxWidth: '100vw' }}
+      >
         {/* <div> */}
 
         <motion.svg
